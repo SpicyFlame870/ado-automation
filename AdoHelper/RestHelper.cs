@@ -16,7 +16,7 @@ namespace Helpers
         {
             EndpointPatchDocument patch = new EndpointPatchDocument();
             patch.Resource.ID = endpointId;
-            await CallDevOpsRest("patch", $"https://{AzureDevOpsAccountorganisationName}.visualstudio.com/{Uri.EscapeUriString(project)}/_apis/pipelines/pipelinePermissions/endpoint/{endpointId}", JsonConvert.SerializeObject(patch), "application/json", _personalAccessToken);
+            await CallDevOpsRest("patch", $"https://{organisation}.visualstudio.com/{Uri.EscapeUriString(project)}/_apis/pipelines/pipelinePermissions/endpoint/{endpointId}", JsonConvert.SerializeObject(patch), "application/json", _personalAccessToken);
         }
 
         public static async Task<string> CallDevOpsRest(string method, string url, string body, string contentType, string accessToken)
